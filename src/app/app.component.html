@@ -1,0 +1,18 @@
+<app-header [actionOptions]="actionOptions"></app-header>
+
+<main>
+  <h2>Factory resolver</h2>
+  <p>
+    <button type="button" (click)="applyButton(inputWithText.value)">Apply button</button>
+  </p>
+  <p>
+    <button type="button" (click)="applyInput(inputWithText.value)">Apply input</button>
+  </p>
+  <label>
+    Text
+    <input type="text" #inputWithText>
+  </label>
+
+</main>
+
+<router-outlet></router-outlet>
