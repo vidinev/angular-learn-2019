@@ -1,22 +1,29 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { AlertButtonComponent } from './alert-button/alert-button.component';
 import { InputTextComponent } from './input-text/input-text.component';
+import { CustomFormControlComponent } from './custom-form-control/custom-form-control.component';
+import { ButtonSelectComponent } from './custom-form-control/button-select/button-select.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     AlertButtonComponent,
-    InputTextComponent
+    InputTextComponent,
+    CustomFormControlComponent,
+    ButtonSelectComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   entryComponents: [
     AlertButtonComponent,

@@ -1,0 +1,12 @@
+<input type="text"
+       placeholder="Enter some value..."
+       (input)="inputChange($event.target)"
+       [value]="selectedItem.title">
+
+<div class="buttons-wrapper">
+  <button *ngFor="let item of items" type="button"
+          [class.active]="selectedItem.value === item.value"
+          (click)="selectedItem = item">
+    {{item.title}}
+  </button>
+</div>

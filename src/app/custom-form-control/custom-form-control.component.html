@@ -1,0 +1,9 @@
+<div class="custom-form-control-wrapper">
+  <h2>Custom form control 1</h2>
+
+  <form [formGroup]="form">
+    <app-button-select formControlName="myVal"></app-button-select>
+  </form>
+
+  <pre>{{ form.value | json }}</pre>
+</div>
