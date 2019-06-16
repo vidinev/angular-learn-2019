@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +10,7 @@ import { AlertButtonComponent } from './alert-button/alert-button.component';
 import { InputTextComponent } from './input-text/input-text.component';
 import { CustomFormControlComponent } from './custom-form-control/custom-form-control.component';
 import { ButtonSelectComponent } from './custom-form-control/button-select/button-select.component';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { ButtonSelectComponent } from './custom-form-control/button-select/butto
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ServiceWorkerModule.register('angular-learn/ngsw-worker.js', { enabled: environment.production })
   ],
   entryComponents: [
     AlertButtonComponent,
