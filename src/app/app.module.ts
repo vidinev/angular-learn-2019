@@ -26,7 +26,7 @@ import { environment } from '../environments/environment';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    ServiceWorkerModule.register('angular-learn/ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   entryComponents: [
     AlertButtonComponent,
