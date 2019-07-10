@@ -6,7 +6,7 @@ const app = express();
 app.use(express.static(__dirname + '/angular-app'));
 
 app.get('/ngsw-worker.js', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '/angular-app/ngsw-worker.js'));
+  res.sendFile(path.resolve(__dirname, '/ngsw-worker.js'));
 });
 
 app.get('/*', function(req, res) {
