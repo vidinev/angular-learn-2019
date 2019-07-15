@@ -11,6 +11,7 @@ import { InputTextComponent } from './input-text/input-text.component';
 import { CustomFormControlComponent } from './custom-form-control/custom-form-control.component';
 import { ButtonSelectComponent } from './custom-form-control/button-select/button-select.component';
 import { environment } from '../environments/environment';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -22,11 +23,12 @@ import { environment } from '../environments/environment';
     ButtonSelectComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    RouterModule
   ],
   entryComponents: [
     AlertButtonComponent,

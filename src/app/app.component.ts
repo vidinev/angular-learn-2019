@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { SwUpdate, UpdateAvailableEvent } from '@angular/service-worker';
+
+
 import { AlertButtonComponent } from './alert-button/alert-button.component';
 import { InputTextComponent } from './input-text/input-text.component';
 
@@ -9,6 +12,15 @@ import { InputTextComponent } from './input-text/input-text.component';
 })
 export class AppComponent {
   actionOptions: unknown;
+
+  constructor(updates: SwUpdate) {
+    updates.available.subscribe((event: UpdateAvailableEvent) => {
+      console.log(event);
+      if (prompt('ready for update')) {
+        updates.activateUpdate().then(() => document.location.reload());
+      }
+    });
+  }
 
   applyButton(text: string) {
     this.actionOptions = { component: AlertButtonComponent, data: { text } };
