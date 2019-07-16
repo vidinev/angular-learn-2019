@@ -12,6 +12,7 @@ import { CustomFormControlComponent } from './custom-form-control/custom-form-co
 import { ButtonSelectComponent } from './custom-form-control/button-select/button-select.component';
 import { environment } from '../environments/environment';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     ReactiveFormsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
-    RouterModule
+    RouterModule,
+    HttpClientModule
   ],
   entryComponents: [
     AlertButtonComponent,

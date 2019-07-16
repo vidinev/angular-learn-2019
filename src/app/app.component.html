@@ -19,6 +19,10 @@
     <app-custom-form-control></app-custom-form-control>
   </div>
 
+  <h1 *ngFor="let item of items$ | async">
+    {{item}}
+  </h1>
+
 </main>
 
 <router-outlet></router-outlet>
