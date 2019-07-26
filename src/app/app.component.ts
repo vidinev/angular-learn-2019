@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { SwUpdate, UpdateAvailableEvent } from '@angular/service-worker';
-
+import { BreakpointObserver, Breakpoints, MediaMatcher } from '@angular/cdk/layout';
 
 import { AlertButtonComponent } from './alert-button/alert-button.component';
 import { InputTextComponent } from './input-text/input-text.component';
@@ -16,9 +16,20 @@ export class AppComponent {
   actionOptions: unknown;
   items$;
 
-  constructor(updates: SwUpdate, public http: HttpClient) {
+  constructor(updates: SwUpdate,
+              public http: HttpClient,
+              breakpointObserver: BreakpointObserver,
+              mediaMatcher: MediaMatcher) {
+    const mediaQueryList = mediaMatcher.matchMedia('(min-width: 960px) and (max-width: 1279.99px)');
+    console.log(mediaQueryList);
+    breakpointObserver.observe([
+      Breakpoints.Large,
+      Breakpoints.Medium
+    ]).subscribe(result => {
+      console.log(result);
+    });
+
     updates.available.subscribe((event: UpdateAvailableEvent) => {
-      console.log(event);
       if (prompt('ready for update')) {
         updates.activateUpdate().then(() => document.location.reload());
       }
